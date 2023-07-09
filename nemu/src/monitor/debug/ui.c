@@ -80,6 +80,21 @@ static int cmd_info(char *args){
   return 0;
 }
 
+static int cmd_x(char *args){
+	if (args == NULL) {
+        printf("Wrong Command!\n");
+        return 0;
+    }
+	int num,exprs;
+	sscanf(args,"%d%x",&num,&exprs);
+	int i;
+	for (i = 0;i < num;i ++){
+		printf("0x%8x  0x%x\n",exprs + i*32,vaddr_read(exprs + i * 32,32));
+	}
+	return 0;
+}
+
+
 static struct {
   char *name;
   char *description;
@@ -90,6 +105,7 @@ static struct {
   { "q", "Exit NEMU", cmd_q },
   {"si", "Single-step execute", cmd_si},
   {"info", "Print paogram status", cmd_info},
+  {"x", "Scan memory", cmd_x},
   /* TODO: Add more commands */
 
 };
