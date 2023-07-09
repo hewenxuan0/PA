@@ -38,6 +38,32 @@ static int cmd_q(char *args) {
 
 static int cmd_help(char *args);
 
+static int cmd_si(char *args){   
+
+    char *argv = strtok(args," ");
+
+     printf("%s\n",argv);
+
+    if(argv == NULL){
+
+        printf("too few arguments.\n");
+
+        return 1;
+
+    }
+
+    int num = atoi(argv);
+
+    cpu_exec(num);
+
+    printf("OK");
+
+    return 0;
+
+};
+
+
+
 static struct {
   char *name;
   char *description;
@@ -46,6 +72,7 @@ static struct {
   { "help", "Display informations about all supported commands", cmd_help },
   { "c", "Continue the execution of the program", cmd_c },
   { "q", "Exit NEMU", cmd_q },
+  {"si", "single-step execute", cmd_si},
 
   /* TODO: Add more commands */
 
