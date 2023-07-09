@@ -42,7 +42,7 @@ static int cmd_si(char *args){
 
     char *argv = strtok(args," ");
 
-     printf("%s\n",argv);
+     //printf("%s\n",argv);
 
     if(argv == NULL){
        cpu_exec(1);
