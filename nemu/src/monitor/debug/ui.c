@@ -45,19 +45,14 @@ static int cmd_si(char *args){
      printf("%s\n",argv);
 
     if(argv == NULL){
-
-        printf("too few arguments.\n");
-
-        return 1;
-
+       cpu_exec(1);
+       printf("OK");
+       return 0;
     }
 
     int num = atoi(argv);
-
     cpu_exec(num);
-
     printf("OK");
-
     return 0;
 
 };
