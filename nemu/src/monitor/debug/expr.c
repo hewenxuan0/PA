@@ -233,7 +233,8 @@ uint32_t eval(int l, int r) {
 
 				for (i = R_EAX; i <= R_EDI ; i ++) {
 					//printf("%8x\t",reg_l(i));
-					if (strcmp(tokens[l].str, regsl[i]) == 0) {
+					char *temp=strcat("$",regsl[i]);
+					if (strcmp(tokens[l].str, temp) == 0) {
 						return reg_l(i);
 						break;
 
@@ -243,7 +244,7 @@ uint32_t eval(int l, int r) {
 
 				if (i > R_EDI) {
 
-					if (strcmp(tokens[l].str, "eip") == 0) {
+					if (strcmp(tokens[l].str, "$eip") == 0) {
 
 						return num = cpu.eip;
 
