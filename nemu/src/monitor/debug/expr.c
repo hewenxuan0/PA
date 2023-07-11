@@ -37,7 +37,7 @@ static struct rule {
   {"0[xX][0-9a-fA-F]+",TK_HEXA},
   {"[1-9][0-9]*|0",TK_DEC},
   {"[a-zA-Z_][a-zA-Z0-9_]*",TK_VAL},
-  {"\\$[eE]?(ax|dx|cx|bx|bp|si|di|sp)",TK_REG},
+  {"\\$[eE]?(ax|dx|cx|bx|bp|si|di|sp)|\\$[a-dA- D][hlHL]",TK_REG},
   {"\\(",'('},
   {"\\)",')'},
 };
