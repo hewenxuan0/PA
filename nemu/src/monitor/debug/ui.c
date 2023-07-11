@@ -96,7 +96,7 @@ static int cmd_x(char *args){
 			printf("0x%02x\t",mem&0xff);
 			mem=mem>>8;
 	}
-	printf("/n");
+	printf("\n");
 	}
 	return 0;
 }
