@@ -232,9 +232,9 @@ uint32_t eval(int l, int r) {
 				int i;
 
 				for (i = R_EAX; i <= R_EDI ; i ++) {
-					printf("%8x\t",reg_l(i));
+					//printf("%8x\t",reg_l(i));
 					if (strcmp(tokens[l].str, regsl[i]) == 0) {
-						
+						return reg_l(i);
 						break;
 
 					}
@@ -245,7 +245,7 @@ uint32_t eval(int l, int r) {
 
 					if (strcmp(tokens[l].str, "eip") == 0) {
 
-						num = cpu.eip;
+						return num = cpu.eip;
 
 					} else {return 0;}
 
