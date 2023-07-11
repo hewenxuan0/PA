@@ -227,7 +227,7 @@ uint32_t eval(int l, int r) {
 
 		} else if (tokens[l].type == TK_REG) {
 
-			if (strlen(tokens[l].str) == 3) { //length = 3
+			if (strlen(tokens[l].str) == 4) { 
 
 				int i;
 
@@ -253,7 +253,7 @@ uint32_t eval(int l, int r) {
 
 			}
 
-			else if (strlen(tokens[l].str) == 2) { //length = 2
+			else if (strlen(tokens[l].str) == 3) {
 
 				int i;
 
