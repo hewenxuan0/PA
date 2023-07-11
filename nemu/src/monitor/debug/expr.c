@@ -232,7 +232,7 @@ uint32_t eval(int l, int r) {
 				int i;
 
 				for (i = R_EAX; i <= R_EDI ; i ++) {
-					printf("%8x",reg_l(i));
+					//printf("%8x",reg_l(i));
 					if (strcmp(tokens[l].str, regsl[i]) == 0) {
 						
 						break;
