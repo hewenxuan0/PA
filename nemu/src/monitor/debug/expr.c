@@ -33,7 +33,7 @@ static struct rule {
   
   {"&&",TK_AND},
   {"\\|\\|",TK_OR},
-  {"\\b\\$[a-dA- D][hlHL]|\\$[eE]?(ax|dx|cx|bx|bp|si|di|sp)\\b",TK_REG},
+  {"\\b\\$[a-dA- D][hlHL]|(\\$[eE]?(ax|dx|cx|bx|bp|si|di|sp))\\b",TK_REG},
   {"0[xX][0-9a-fA-F]+",TK_HEXA},
   {"[1-9][0-9]*|0",TK_DEC},
   {"[a-zA-Z_][a-zA-Z0-9_]*",TK_VAL},
