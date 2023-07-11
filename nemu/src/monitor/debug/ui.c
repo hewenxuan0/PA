@@ -90,7 +90,12 @@ static int cmd_x(char *args){
 	sscanf(args,"%d%x",&num,&exprs);
 	int i;
 	for (i = 0;i < num;i ++){
-		printf("0x%8x  0x%x\n",exprs + i*4,vaddr_read(exprs + i * 4,4));
+		printf("0x%8x\t",exprs + i*4);
+		uint32_t mem=vaddr_read(exprs=i*4,4);
+		for(int j=0;j<4;j++){
+			printf("0x%02x\t",mem&0xff);
+			mem=mem>>8;
+	}
 	}
 	return 0;
 }
