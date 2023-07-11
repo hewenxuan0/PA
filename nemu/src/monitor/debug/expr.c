@@ -235,7 +235,7 @@ uint32_t eval(int l, int r) {
 					
 					char *temp=strcat("$",regsl[i]);
 					printf("%s\t",temp);
-					if (strcmp(tokens[l].str, temp) == 0) {
+					if (strcmp(tokens[l].str, regsl[i]) == 0) {
 						return reg_l(i);
 						break;
 
