@@ -232,8 +232,9 @@ uint32_t eval(int l, int r) {
 				int i;
 
 				for (i = R_EAX; i <= R_EDI ; i ++) {
-					//printf("%8x\t",reg_l(i));
+					
 					char *temp=strcat("$",regsl[i]);
+					printf("%s\t",temp);
 					if (strcmp(tokens[l].str, temp) == 0) {
 						return reg_l(i);
 						break;
