@@ -60,19 +60,10 @@ static int cmd_si(char *args){
 static int cmd_info(char *args){
    char *argv=strtok(args," ");
    if (strcmp(argv,"r")==0){
-        printf("eax is %x\n",cpu.eax);
-        printf("ecx is %x\n",cpu.ecx);
-        printf("edx is %x\n",cpu.edx);
+        for(int i=0;i<8;i++)
+      		printf("%s \t0x%x \t%d\n",regsl[i],cpu.gpr[i]._32,cpu.gpr[i]._32);
 
-        printf("ebx is %x\n",cpu.ebx);
-        printf("esp is %x\n",cpu.esp);
-
-        printf("ebp is %x\n",cpu.ebp);
-        printf("esi is %x\n",cpu.esi);
-
-        printf("edi is %x\n",cpu.edi);
-	printf("eip is %x\n",cpu.eip);
-        printf("---------------------------\n");
+      printf("eip \t0x%x \t%d\n",cpu.eip,cpu.eip);
 
   }
   else if(strcmp(argv,"w")==0){
