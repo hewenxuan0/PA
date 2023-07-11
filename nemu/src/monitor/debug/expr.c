@@ -262,39 +262,31 @@ uint32_t eval(int l, int r) {
 				int i;
 
 				for (i = R_AX; i <= R_DI; i ++) {
-
-					if (strcmp(tokens[l].str, regsw[i]) == 0) {
-
-						break;
+					char reg[3];
+					for(int j=0;j<2;j++){
+						reg[j]=tokens[l].str[j+1];
+					}
+					reg[2]='\0';
+					if (strcmp(reg, regsw[i]) == 0) {
+						return num = reg_w(i);
 
 					}
 
 				}
-
-				if (i <= R_DI) return num = reg_w(i);
 
 				for (i = R_AL; i <= R_BH; i ++) {
-
-					if (strcmp(tokens[l].str, regsb[i]) == 0) {
-
-						break;
-
+					char reg[3];
+					for(int j=0;j<2;j++){
+						reg[j]=tokens[l].str[j+1];
 					}
-
-				}
-				if (i <= R_DI) return num = reg_w(i);
-
-				for (i = R_AL; i <= R_BH; i ++) {
-
-					if (strcmp(tokens[l].str, regsb[i]) == 0) {
-
-						break;
+					reg[2]='\0';
+					if (strcmp(reg, regsb[i]) == 0) {
+						return num = reg_b(i);
 
 					}
 
 				}
 
-				if (i <= R_BH) return num = reg_b(i);
 
 				return 0;
 
