@@ -101,6 +101,24 @@ static int cmd_x(char *args){
 	return 0;
 }
 
+static int cmd_p(char *args) {
+
+
+	uint32_t ans;
+
+	bool flag;
+
+	ans = expr(args, &flag);
+
+	if(flag) {
+
+		printf("%d\n", ans);
+
+	}
+
+	return 0;
+
+}
 
 static struct {
   char *name;
@@ -113,6 +131,7 @@ static struct {
   {"si", "Single-step execute", cmd_si},
   {"info", "Print paogram status", cmd_info},
   {"x", "Scan memory", cmd_x},
+  {"p", "Expression calculate",cmd_p},
   /* TODO: Add more commands */
 
 };
