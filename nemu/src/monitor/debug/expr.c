@@ -232,11 +232,12 @@ uint32_t eval(int l, int r) {
 				int i;
 
 				for (i = R_EAX; i <= R_EDI ; i ++) {
-					char t[1]="$";
-					char *temp=strcat(t,regsl[i]);
-
-					printf("%s\t",temp);
-					if (strcmp(tokens[l].str, regsl[i]) == 0) {
+					char reg[4];
+					for(int j=0;j<3;j++){
+						reg[j]=tokens[l].str[j+1];
+					}
+					reg[3]='\0';
+					if (strcmp(reg, regsl[i]) == 0) {
 						return reg_l(i);
 						break;
 
