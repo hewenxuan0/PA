@@ -67,7 +67,7 @@ static int cmd_info(char *args){
 
   }
   else if(strcmp(argv,"w")==0){
-	//print_wp();
+	print_w();
 }
   return 0;
 }
