@@ -69,6 +69,14 @@ WP* new_wp(){
 void free_wp(WP *wp){
 
   WP *cur=head;
+  
+  if(head==wp){
+printf("find target\n");
+  head=head->next;
+  wp->next=free_;
+
+  free_=wp;
+}
 
   while(cur!=NULL){
 
