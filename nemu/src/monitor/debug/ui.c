@@ -111,6 +111,64 @@ static int cmd_p(char *args) {
 
 }
 
+static int cmd_w(char* args) {
+
+	bool flag = true;
+
+	uint32_t v = expr(args, &flag);
+
+  if(!flag){
+
+    printf("Bad expr!\n");
+
+    return 0;
+
+  }
+
+	WP *wp = new_wp();
+
+	if (wp == NULL) {
+
+		printf("No space to add an extra watchpoint!");
+
+		return 0;
+
+	}
+
+	strcpy(wp -> expr, args);
+
+	wp -> val = v;
+
+	printf("Succefully add watchpoint NO.%d\n", wp -> NO);
+
+	return 0;
+
+}
+
+static int cmd_d(char* args) {
+
+	int id;
+
+	sscanf(args, "%d", &id);
+
+	WP* wp = find_wp(id);
+
+	if (wp==NULL) {
+
+		printf("Cannot Find!\n");
+
+		return 0;
+
+	}
+
+	free_wp(wp);
+
+	printf("Succefully Delete!\n");
+
+	return 0;
+
+}
+
 static struct {
   char *name;
   char *description;
@@ -123,6 +181,8 @@ static struct {
   {"info", "Print paogram status", cmd_info},
   {"x", "Scan memory", cmd_x},
   {"p", "Expression calculate",cmd_p},
+  { "w", "Add watchpoint", cmd_w},
+  { "d", "Delete watchpoint", cmd_d},
   /* TODO: Add more commands */
 
 };
