@@ -76,7 +76,7 @@ void free_wp(WP *wp){
 
       printf("find target\n");
 
-      cur->next=wp->next;
+      cur->next=cur->next->next;
 
       wp->next=free_;
 
