@@ -54,9 +54,9 @@ WP* new_wp(){
 
     cur->next=free_;
 
-    cur->next->next=NULL;
-
     free_=free_->next;
+
+    cur->next->next=NULL;
 
     return cur->next;
 
