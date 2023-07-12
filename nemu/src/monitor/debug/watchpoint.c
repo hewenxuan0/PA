@@ -34,9 +34,9 @@ WP* new_wp(){
 
     head=free_;
 
-    head->next=NULL;
-
     free_=free_->next;
+
+    head->next=NULL;
 
     return head;
 
