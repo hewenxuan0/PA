@@ -81,6 +81,7 @@ static inline void load_img() {
 
 static inline void restart() {
   /* Set the initial instruction pointer. */
+  cpu.eflags.value=0x00000002;
   cpu.eip = ENTRY_START;
 
 #ifdef DIFF_TEST

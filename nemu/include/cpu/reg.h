@@ -36,9 +36,25 @@ typedef struct {
     uint32_t ebp;
     uint32_t esi;
     uint32_t edi;
-  };
+    union {
+      struct{
+        uint32_t CF : 1;
+        uint32_t :    5;
+        uint32_t ZF : 1;
+        uint32_t SF : 1;
+        uint32_t :    1;
+
+        uint32_t IF : 1;
+        uint32_t :    1;
+        uint32_t OF : 1;
+        uint32_t :   20;
+        };
+        rtlreg_t value;
+      } eflags;
+    };
   };
   //rtlreg_t eax, ecx, edx, ebx, esp, ebp, esi, edi;
+  
 
   vaddr_t eip;
 
