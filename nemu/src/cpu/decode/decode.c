@@ -31,14 +31,24 @@ static inline make_DopHelper(SI) {
   assert(op->width == 1 || op->width == 4);
 
   op->type = OP_TYPE_IMM;
-  op->imm = instr_fetch(eip, op->width);
   /* TODO: Use instr_fetch() to read `op->width' bytes of memory
    * pointed by `eip'. Interpret the result as a signed immediate,
    * and assign it to op->simm.
    *
    op->simm = ???
    */
-  
+  if (op->width == 4)
+    op->simm = instr_fetch(eip, op->width);
+  else{
+
+    t0 = (uint16_t)instr_fetch(eip, op->width);
+
+    rtl_sext(&t1, &t0, op->width);
+
+    op->simm = t1;
+
+  }
+
 
   rtl_li(&op->val, op->simm);
 
