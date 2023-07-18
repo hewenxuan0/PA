@@ -128,7 +128,7 @@ int init_monitor(int argc, char *argv[]) {
 
   /* Initialize this virtual computer system. */
   restart();
-printf("1111\n");
+
   /* Compile the regular expressions. */
   init_regex();
 
