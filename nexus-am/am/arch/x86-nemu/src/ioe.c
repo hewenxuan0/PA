@@ -4,9 +4,15 @@
 #define RTC_PORT 0x48   // Note that this is not standard
 static unsigned long boot_time;
 
+#define I8042_DATA_PORT 0x60
+
+#define I8042_STATUS_PORT 0x64
+
 void _ioe_init() {
   boot_time = inl(RTC_PORT);
 }
+
+
 
 unsigned long _uptime() {
   return inl(RTC_PORT)-boot_time;
