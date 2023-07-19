@@ -59,4 +59,4 @@ make_EHelper(out);
 
 make_EHelper(_uptime);
 
-//make_EHelper(rol);
+make_EHelper(rol);
