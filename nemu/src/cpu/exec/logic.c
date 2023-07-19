@@ -89,9 +89,6 @@ make_EHelper(not) {
 }
 
 make_EHelper(rol) {
-
-
-
   for(t0 = 0;t0 < id_src->val; t0++)
 
   {
@@ -108,10 +105,6 @@ make_EHelper(rol) {
 
   operand_write(id_dest,&id_dest->val);
 
-
-
   print_asm_template2(rol);
-
-
 
 }
